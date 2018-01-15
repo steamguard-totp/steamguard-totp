@@ -1,0 +1,14 @@
+{
+  "name": "steam-2fa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/veggiedefender/steam-2fa.git",
+  "author": "veggiedefender <jessejesse123@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  }
+}
