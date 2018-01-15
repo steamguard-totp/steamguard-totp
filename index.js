@@ -1,16 +1,18 @@
 const crypto = require('crypto');
 
-function generateCode(secret, time) {
-  time = Math.floor(time / 30);
+module.exports = function generateCode(secret, time) {
+  let interval = Math.floor(time / 30);
   const timeBytes = Buffer.allocUnsafe(8);
   for (let i = 7; i >= 0; i--) {
-    timeBytes[i] = time;
-    time >>>= 8;
+    timeBytes[i] = interval;
+    interval >>>= 8;
   }
 
-  let hmac = crypto.createHmac('sha1', secret).update(timeBytes).digest();
-
+  const hmac = crypto.createHmac('sha1', secret).update(timeBytes).digest();
   const offset = hmac[19] & 15;
+
+  // Formatting this won't make it more readable
+  // eslint-disable-next-line max-len
   let binCode = ((((hmac[offset] & 127) << 24) | ((hmac[offset + 1] & 255) << 16)) | ((hmac[offset + 2] & 255) << 8)) | (hmac[offset + 3] & 255);
 
   const codeChars = '23456789BCDFGHJKMNPQRTVWXY';
@@ -21,4 +23,4 @@ function generateCode(secret, time) {
   }
 
   return result;
-}
+};
