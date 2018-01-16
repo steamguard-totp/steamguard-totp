@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 
-module.exports = function generateCode(secret, time) {
+function generateCodeForTime(secret, time) {
   let interval = Math.floor(time / 30);
   const timeBytes = Buffer.allocUnsafe(8);
   for (let i = 7; i >= 0; i--) {
@@ -24,4 +24,11 @@ module.exports = function generateCode(secret, time) {
   }
 
   return result;
-};
+}
+
+function generateCode(secret) {
+  const time = Math.floor(Date.now() / 1000);
+  return generateCodeForTime(secret, time);
+}
+
+module.exports = { generateCodeForTime, generateCode };
