@@ -8,7 +8,8 @@ module.exports = function generateCode(secret, time) {
     interval >>>= 8;
   }
 
-  const hmac = crypto.createHmac('sha1', secret).update(timeBytes).digest();
+  const decodedSecret = Buffer.from(secret, 'base64');
+  const hmac = crypto.createHmac('sha1', decodedSecret).update(timeBytes).digest();
   const offset = hmac[19] & 15;
 
   // Formatting this won't make it more readable
