@@ -5,7 +5,7 @@
   "repository": "https://github.com/veggiedefender/steam-2fa.git",
   "author": "veggiedefender <jessejesse123@gmail.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
     "test": "mocha",
     "lint": "./node_modules/.bin/eslint ."
