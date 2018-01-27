@@ -1,5 +1,5 @@
 {
-  "name": "steam-2fa",
+  "name": "steamguard-totp",
   "version": "1.0.0",
   "main": "src/index.js",
   "repository": "https://github.com/veggiedefender/steam-2fa.git",
