@@ -1,6 +1,7 @@
 /* global describe it */
 const assert = require('assert');
-const { generateCodeForTime } = require('..');
+const { generateCodeForTime } = require('../src/codeGenerator');
+const TimeCorrector = require('../src/timeCorrector');
 
 describe('TOTP generation', () => {
   it('should generate correct one-time-passwords', () => {
@@ -9,5 +10,12 @@ describe('TOTP generation', () => {
     assert.equal(generateCodeForTime(secret, 1516070462), 'WMJ5T');
     assert.equal(generateCodeForTime(secret, 1516070522), 'NH35T');
     assert.equal(generateCodeForTime(secret, 1516070551), 'P5RVN');
+  });
+});
+
+describe('TimeCorrector object', () => {
+  const timeCorrector = new TimeCorrector();
+  it('should obtain a valid integer time offset', async () => {
+    assert(Number.isInteger(await timeCorrector.timeOffset));
   });
 });
