@@ -20,7 +20,7 @@ class TimeCorrector {
 
     // account for network latency
     const elapsed = end - start;
-    valveTime += elapsed;
+    valveTime += elapsed / 2;
 
     return end - valveTime;
   }

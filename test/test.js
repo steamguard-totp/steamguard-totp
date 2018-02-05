@@ -15,7 +15,7 @@ describe('TOTP generation', () => {
 
 describe('TimeCorrector object', () => {
   const timeCorrector = new TimeCorrector();
-  it('should obtain a valid integer time offset', async () => {
-    assert(Number.isInteger(await timeCorrector.timeOffset));
+  it('should obtain a valid numeric time offset', async () => {
+    assert(typeof (await timeCorrector.timeOffset) === 'number');
   });
 });
