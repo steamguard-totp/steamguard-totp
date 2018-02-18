@@ -1,6 +1,6 @@
 /* global describe it */
 const assert = require('assert');
-const { generateCodeForTime } = require('../src/codeGenerator');
+const { generateCodeForTime } = require('..');
 const TimeCorrector = require('../src/timeCorrector');
 
 describe('TOTP generation', () => {
