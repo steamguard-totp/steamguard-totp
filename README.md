@@ -9,6 +9,8 @@ yarn add steamguard-totp
 ```
 
 # Usage
+
+## Normal usage
 ```js
 const { generateCode } = require('steamguard-totp');
 
@@ -23,4 +25,13 @@ const shared_secret = '8cr0T+zCLiaSdo1E+Alp7nzAPno=';
 // promise style
 generateCode(shared_secret)
   .then((code) => console.log(code));
+```
+
+## For time travelers
+```js
+const { generateCodeForTime } = require('steamguard-totp');
+const shared_secret = '8cr0T+zCLiaSdo1E+Alp7nzAPno=';
+
+const code = generateCodeForTime(shared_secret, 1516070462);
+console.log(code); // WMJ5T
 ```
