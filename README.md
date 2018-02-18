@@ -30,8 +30,10 @@ generateCode(shared_secret)
 ## For time travelers
 ```js
 const { generateCodeForTime } = require('steamguard-totp');
-const shared_secret = '8cr0T+zCLiaSdo1E+Alp7nzAPno=';
 
-const code = generateCodeForTime(shared_secret, 1516070462);
+const shared_secret = '8cr0T+zCLiaSdo1E+Alp7nzAPno=';
+const timestamp = 1516070462; // Unix timestamp (seconds)
+
+const code = generateCodeForTime(shared_secret, timestamp);
 console.log(code); // WMJ5T
 ```
