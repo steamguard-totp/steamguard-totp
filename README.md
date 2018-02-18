@@ -10,7 +10,7 @@ yarn add steamguard-totp
 
 # Usage
 ```js
-const generateCode = require('steamguard-totp');
+const { generateCode } = require('steamguard-totp');
 
 const shared_secret = '8cr0T+zCLiaSdo1E+Alp7nzAPno=';
 
