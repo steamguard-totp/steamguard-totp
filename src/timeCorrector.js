@@ -5,7 +5,7 @@ class TimeCorrector {
     this.refresh();
   }
 
-  static async getValveTime() {
+  async getValveTime() {
     const url = 'https://api.steampowered.com/ITwoFactorService/QueryTime/v1/';
     const response = await axios.post(url, {
       responseType: 'json',
@@ -13,9 +13,9 @@ class TimeCorrector {
     return response.data.response.server_time;
   }
 
-  static async getTimeOffset() {
+  async getTimeOffset() {
     const start = Date.now();
-    let valveTime = await TimeCorrector.getValveTime() * 1000;
+    let valveTime = await this.getValveTime() * 1000;
     const end = Date.now();
 
     // account for network latency
@@ -26,7 +26,7 @@ class TimeCorrector {
   }
 
   async refresh() {
-    this.timeOffset = TimeCorrector.getTimeOffset();
+    this.timeOffset = this.getTimeOffset();
   }
 
   async now() {
