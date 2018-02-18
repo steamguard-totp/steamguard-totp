@@ -1,3 +1,3 @@
-const { generateCode } = require('./codeGenerator');
+const { generateCodeForTime, generateCode } = require('./codeGenerator');
 
-module.exports = generateCode;
+module.exports = { generateCodeForTime, generateCode };
